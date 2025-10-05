@@ -18,5 +18,7 @@
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/<your-username>/ShellSense.git
-   cd ShellSense
+   git clone https://github.com/md-rahib-chowdhury/Basic-Bash-file-for-linux
+   cd Basic-Bash-file-for-linux
+   bash tools_and_requirment_to_run
+   bash LinuxSys
