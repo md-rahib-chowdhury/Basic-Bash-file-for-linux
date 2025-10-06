@@ -1,0 +1,96 @@
+#! /bin/bash
+
+#colors
+PURPLE='\e[35m'
+RED='\e[31m'
+GREEN='\e[32m'
+BLUE='\e[34m'
+NO_COLOR='\e[0m'
+
+#Confirmation for required tools
+read -p "Did u run the 'tools_and_requirment_to_run' file before(required for first time only)?(yes/no)" tools
+if [ "$tools" == "yes" ];
+then
+echo ""
+else
+echo -e "${RED}run the 'tools_and_requirment_to_run' file first${NO_COLOR}"
+exit
+fi
+
+#Name of author
+figlet "RAHIB" | lolcat
+
+#system update and upgrade command
+read -p "Do you want to run update and upgrade command (yes/no)" update
+if [ "$update" == "yes" ];
+then
+    sudo apt update && sudo apt upgrade
+fi
+
+
+#all commands in while loop
+while true; do
+
+
+#Name and details of commands
+echo -e "${GREEN}------CHOOSE AN OPTION FROM BELOW------${NO_COLOR}"
+echo -e "${RED}1) Update linux dist${NO_COLOR}"
+echo -e "${BLUE}2) Display Network interface parameters${NO_COLOR}"
+echo -e "${BLUE}3) Display CPU Info${NO_COLOR}"
+echo -e "${BLUE}4) Display your user name${NO_COLOR}"
+echo -e "${BLUE}5) Display the directory${NO_COLOR}"
+echo -e "${BLUE}6) Display your disk usage${NO_COLOR}"
+echo -e "${BLUE}7) Display your Running processes${NO_COLOR}"
+echo -e "${BLUE}8) Manage you running processes${NO_COLOR}"
+echo -e "${BLUE}9) Display information of your linux machine and kernel${NO_COLOR}"
+echo -e "${BLUE}10) View boot log${NO_COLOR}"
+echo -e "${BLUE}11) Find a file in system${NO_COLOR}"
+echo -e "${PURPLE}12) Guessing game${NO_COLOR}"
+echo -e "${RED}13) Exit${NO_COLOR}"
+
+#input from user
+read -p "Enter your choice here:" choice
+
+#commands to run
+case $choice in
+	1) sudo apt dist-upgrade;;
+        2) ifconfig;;
+        3) lscpu;;
+        4) whoami;;
+        5) pwd;;
+        6) du;;
+        7) top;;
+        8) htop;;
+        9) uname -a;;
+	10) sudo more /var/log/boot.log;;
+	11) read -p "what is the name of the file=" file
+		sudo find / -name "*${file}";;
+	12) read -p "do you want to play a guessing game?(yes/no)" game
+        if  [ "$game" == "no" ];
+          then
+        echo -e "${PURPLE}Come on, You could have tried atleast${NO_COLOR}"
+        elif  [ "$game" == "yes" ];
+           then
+        echo -e "${RED}'warning' if you lose your system might get deleted${NO_COLOR}"
+        echo -e "${GREEN}Type 'yes' to continue...${NO_COLOR}"
+read a
+        if [ "$a" == "yes" ];
+          then
+read -p "Guess a number between 1 to 10 :" num
+        if [ "$num" -eq "3" ];
+          then
+        echo "Congrats, you win" | lolcat
+        else
+          echo -e "${RED}Oops... You lose${NO_COLOR}"
+          echo -e "${BLUE}I am leting you go away this time but there won't be any next${NO_COLOR}"
+fi
+fi
+fi
+;;
+	13) echo "Exiting......."; break;;
+esac
+
+echo ""
+read -p "Press Enter to cotinue..."
+done
+
