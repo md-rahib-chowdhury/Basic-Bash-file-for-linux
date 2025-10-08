@@ -1,7 +1,0 @@
-#! /bin/bash
-
-
-sudo apt install figlet toilet
-sudo gem install lolcat
-sudo apt install htop
-
