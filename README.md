@@ -18,7 +18,7 @@
 
 1. Clone this repository:  
    ```bash
-   git clone https://github.com/md-rahib-chowdhury/Basic-Bash-file-for-linux
-   cd Basic-Bash-file-for-linux
+   git clone https://github.com/md-rahib-chowdhury/LinuxSys
+   cd LinuxSys
    bash tools_and_requirment_to_run
    bash LinuxSys
